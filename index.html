@@ -17,7 +17,133 @@ Dans ma tête y’a tout qui tourne
     <link rel="shortcut icon" href="fav.ico" type="image/x-icon"> <!--a bosser desus-->
 </head>
 
+<html class="" lang="en"><head>
+<script src="https://static.codepen.io/assets/editor/live/console_runner-a7d19dfb8db35c27bf343618f838527f62153df43b74154074f4a8ccb026cd27.js"></script>
+<script src="https://static.codepen.io/assets/editor/live/css_reload-5619dc0905a68b2e6298901de54f73cefe4e079f65a75406858d92924b4938bf.js"></script>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex">
+<link rel="shortcut icon" type="image/x-icon" href="https://static.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico">
+<link rel="mask-icon" type="" href="https://static.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg" color="#111">
+<link rel="canonical" href="https://codepen.io/desandro/pen/KRWjzm">
+<style class="cp-pen-styles">
+          * { box-sizing: border-box; }
+
+body { font-family: sans-serif; }
+
+.scene {
+  width: 200px;
+  height: 200px;
+  border: 0px solid #CCC;
+  margin: 80px;
+  perspective: 400px;
+}
+
+.cube {
+  width: 200px;
+  height: 200px;
+  position: relative;
+  transform-style: preserve-3d;
+  transform: translateZ(-100px);
+  transition: transform 1s;
+}
+
+.cube.show-front  { transform: translateZ(-100px) rotateY(   0deg); }
+.cube.show-right  { transform: translateZ(-100px) rotateY( -90deg); }
+.cube.show-back   { transform: translateZ(-100px) rotateY(-180deg); }
+.cube.show-left   { transform: translateZ(-100px) rotateY(  90deg); }
+.cube.show-top    { transform: translateZ(-100px) rotateX( -90deg); }
+.cube.show-bottom { transform: translateZ(-100px) rotateX(  90deg); }
+
+.cube__face {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border: 0px solid black;
+  line-height: 200px;
+  font-size: 40px;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+}
+
+.cube__face--front  { background: hsla(  0, 100%, 50%, 0.7); }
+.cube__face--right  { background: hsla( 60, 100%, 50%, 0.7); }
+.cube__face--back   { background: hsla(120, 100%, 50%, 0.7); }
+.cube__face--left   { background: hsla(180, 100%, 50%, 0.7); }
+.cube__face--top    { background: hsla(240, 100%, 50%, 0.7); }
+.cube__face--bottom { background: hsla(300, 100%, 50%, 0.7); }
+
+.cube__face--front  { transform: rotateY(  0deg) translateZ(100px); }
+.cube__face--right  { transform: rotateY( 90deg) translateZ(100px); }
+.cube__face--back   { transform: rotateY(180deg) translateZ(100px); }
+.cube__face--left   { transform: rotateY(-90deg) translateZ(100px); }
+.cube__face--top    { transform: rotateX( 90deg) translateZ(100px); }
+.cube__face--bottom { transform: rotateX(-90deg) translateZ(100px); }
+
+label { margin-right: 10px; }
+        </style>
+</head>
+<body>
+<center><div class="scene">
+<div class="cube show-front">
+<div class="cube__face cube__face--front"><img src="images/unnamed.jpg" alt="UwU" width="200" height="200" /></div>
+<div class="cube__face cube__face--back"><img src="images/unnamed.jpg" alt="UwU" width="200" height="200" /></div>
+<div class="cube__face cube__face--right"><img src="images/unnamed.jpg" alt="UwU" width="200" height="200" /></div>
+<div class="cube__face cube__face--left"><img src="images/unnamed.jpg" alt="UwU" width="200" height="200" /></div>
+<div class="cube__face cube__face--top"><img src="images/unnamed.jpg" alt="UwU" width="200" height="200" /></div>
+<div class="cube__face cube__face--bottom"><img src="images/unnamed.jpg" alt="UwU" width="200" height="200" /></div>
+</div>
+</div>
+<p class="radio-group">
+<label>
+<input type="radio" name="rotate-cube-side" value="front" checked="">
+<label>
+<input type="radio" name="rotate-cube-side" value="right">
+</label>
+<label>
+<input type="radio" name="rotate-cube-side" value="back">
+</label>
+<label>
+<input type="radio" name="rotate-cube-side" value="left">
+</label>
+<label>
+<input type="radio" name="rotate-cube-side" value="top">
+</label>
+<label>
+<input type="radio" name="rotate-cube-side" value="bottom">
+</label>
+</p></center>
+<script src="https://static.codepen.io/assets/common/stopExecutionOnTimeout-de7e2ef6bfefd24b79a3f68b414b87b8db5b08439cac3f1012092b2290c719cd.js"></script>
+<script id="rendered-js" data="__CP_INLINE_JS__">
+  var cube = document.querySelector('.cube');
+var radioGroup = document.querySelector('.radio-group');
+var currentClass = '';
+
+function changeSide() {
+  var checkedRadio = radioGroup.querySelector(':checked');
+  var showClass = 'show-' + checkedRadio.value;
+  if (currentClass) {
+    cube.classList.remove(currentClass);
+  }
+  cube.classList.add(showClass);
+  currentClass = showClass;
+}
+// set initial side
+changeSide();
+
+radioGroup.addEventListener('change', changeSide);
+  //# sourceURL=pen.js
+</script>
+
+<p style="text-align: center;">il y a aucun droit d'auteur sur le code mais toutes les videos de nonobou31 apatiene a son créateur(nonobou31)</p>
+
+
+</body></html>
+
 <style>
+
+
+
 @import 'https://fonts.googleapis.com/css?family=Open+Sans';
 
 * {
@@ -54,7 +180,7 @@ body {
 }
 
 .simple-ext-info {
-	border-top: 1px solid #aaa;
+	border-top: 0px solid #aaa;
 }
 
 p {
@@ -109,7 +235,7 @@ aside,
 [id *= "sidebar"] {
 	max-width: 90%;
 	margin: 0 auto;
-	border: 1px solid lightgrey;
+	border: 0px solid lightgrey;
 	padding: 5px 15px;
 }
 
